@@ -1,0 +1,520 @@
+{
+  "info": {
+    "_postman_id": "149de75c-5ab6-47ea-ba5c-118d0dc0fe89",
+    "name": "ITG",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "issuer-configuration",
+      "item": [
+        {
+          "name": "add-issuer",
+          "_postman_id": "e3f5dd75-4c08-4ae3-9afe-c5b323fbb23e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJsYXN0TmFtZSI6Imluc3RpdHV0aW9uIiwiZmlyc3RMb2dpbiI6ZmFsc2UsInVzZXJfbmFtZSI6ImFnYmluc3RAc2hhcmtsYXNlcnMuY29tIiwibW9iaWxlTm8iOm51bGwsImNsaWVudF9kZXNjcmlwdGlvbiI6bnVsbCwiY2xpZW50X2lkIjoiSUtJQTA0MDI0MDY4NzY0OEYxRjhDRTNGQjAzMzlBMjhFQTVBN0VCQzM3MkUiLCJmaXJzdE5hbWUiOiJhZ2VuY3lfYmFua2luZyIsImVtYWlsVmVyaWZpZWQiOnRydWUsImF1ZCI6WyJhcmJpdGVyIiwiY2Flc2FyIiwiaXN3LWNvcmUiLCJwYXNzcG9ydCIsInJqLXNlcnZpY2UiXSwiY2xpZW50X2F1dGhvcml6YXRpb25fZG9tYWluIjoiSVNXIiwic2NvcGUiOlsicHJvZmlsZSJdLCJleHAiOjE2MDUxMDE0ODcsIm1vYmlsZU5vVmVyaWZpZWQiOmZhbHNlLCJjbGllbnRfbmFtZSI6InJqLXNlcnZpY2UiLCJjbGllbnRfbG9nbyI6bnVsbCwianRpIjoiNzY1MmIwYmEtYjdlZS00ZDE1LWIxN2YtODU5ZWQyMTk4NzY2IiwiZW1haWwiOiJhZ2JpbnN0QHNoYXJrbGFzZXJzLmNvbSIsInBhc3Nwb3J0SWQiOiIzQzMxOTIzQi0zODdGLTQ1NjMtOTQ2RS0wOTZBODk3NjdCOUYifQ.CfPbu8GlUeOkkaWuf01ac1GQJ5W88OUC9nNtXloeRdnkPIEx37hE0wUErEDmVOgPNacPekr4ywTfMiFrkyVe6cCwivvhWMQZ3s8e3p6t3UXCpBLnXF2zDraIpwdo2j65LbN_7t8FL-RlRjX00q5l8QNN_RRwwRYh-2aXrGbB0WhFARzXt66Z5gvxZDW7HuvXDxZ5Xe8h77DFP8xdL19Wv_wYAfIPY3VcZtZhDus7UBNJgG-57d688Vm-eXxhfdjOcYNCOEJQhVmFPaPaaQnUPd2VzS5GGAB_Orb8tk3EXdnlImSZjfGs_0H0dclZXP-kthDGUV9WKy24rv8BKUX2DA",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"organizationName\":\"Fidelis Standard Bank\",\r\n    \"username\":\"blessing\",\r\n    \"userRole\":\"service_manager\",\r\n    \"hostDomain\": \"https://fsb.tokenization.com\",\r\n    \"apiPath\": \"/debit-card-tokenization/api/v1\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "https://interswitch-tokenization-gateway.k9.isw.la/itg/config/api/v1/issuers/add"
+          },
+          "response": []
+        },
+        {
+          "name": "generate-secret",
+          "_postman_id": "f0c23e3e-fd33-4ae5-aa64-4ba53586dafa",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"issuerId\":\"AB0AA0367A\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://localhost:9090/itg/config/api/v1/issuers/generate-secret"
+          },
+          "response": []
+        },
+        {
+          "name": "find-issuer-by-username",
+          "_postman_id": "3c77b72a-8a14-4eff-8a54-ce1c12c4685e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\":\"blessing\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://localhost:9090/itg/config/api/v1/issuers/get-issuer"
+          },
+          "response": []
+        },
+        {
+          "name": "find-all-issuers",
+          "_postman_id": "14826958-9c1e-4a77-ac35-bb6d9b585970",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:9090/itg/config/api/v1/issuers/all/10/1"
+          },
+          "response": []
+        },
+        {
+          "name": "modify-issuer",
+          "_postman_id": "d7bb4ba1-88aa-4368-b577-b39d797c9c3a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJSUzI1Nij9.eyJsYXN0TmFtZSI6Imluc3RpdHV0aW9uIiwiZmlyc3RMb2dpbiI6ZmFsc2UsInVzZXJfbmFtZSI6ImFnYmluc3RAc2hhcmtsYXNlcnMuY29tIiwibW9iaWxlTm8iOm51bGwsImNsaWVudF9kZXNjcmlwdGlvbiI6bnVsbCwiY2xpZW50X2lkIjoiSUtJQTA0MDI0MDY4NzY0OEYxRjhDRTNGQjAzMzlBMjhFQTVBN0VCQzM3MkUiLCJmaXJzdE5hbWUiOiJhZ2VuY3lfYmFua2luZyIsImVtYWlsVmVyaWZpZWQiOnRydWUsImF1ZCI6WyJhcmJpdGVyIiwiY2Flc2FyIiwiaXN3LWNvcmUiLCJwYXNzcG9ydCIsInJqLXNlcnZpY2UiXSwiY2xpZW50X2F1dGhvcml6YXRpb25fZG9tYWluIjoiSVNXIiwic2NvcGUiOlsicHJvZmlsZSJdLCJleHAiOjE2MDUxMDE0ODcsIm1vYmlsZU5vVmVyaWZpZWQiOmZhbHNlLCJjbGllbnRfbmFtZSI6InJqLXNlcnZpY2UiLCJjbGllbnRfbG9nbyI6bnVsbCwianRpIjoiNzY1MmIwYmEtYjdlZS00ZDE1LWIxN2YtODU5ZWQyMTk4NzY2IiwiZW1haWwiOiJhZ2JpbnN0QHNoYXJrbGFzZXJzLmNvbSIsInBhc3Nwb3J0SWQiOiIzQzMxOTIzQi0zODdGLTQ1NjMtOTQ2RS0wOTZBODk3NjdCOUYifQ.CfPbu8GlUeOkkaWuf01ac1GQJ5W88OUC9nNtXloeRdnkPIEx37hE0wUErEDmVOgPNacPekr4ywTfMiFrkyVe6cCwivvhWMQZ3s8e3p6t3UXCpBLnXF2zDraIpwdo2j65LbN_7t8FL-RlRjX00q5l8QNN_RRwwRYh-2aXrGbB0WhFARzXt66Z5gvxZDW7HuvXDxZ5Xe8h77DFP8xdL19Wv_wYAfIPY3VcZtZhDus7UBNJgG-57d688Vm-eXxhfdjOcYNCOEJQhVmFPaPaaQnUPd2VzS5GGAB_Orb8tk3EXdnlImSZjfGs_0H0dclZXP-kthDGUV9WKy24rv8BKUX2DA",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"organizationName\":\"Fidelia Standardized Bank\",\r\n    \"username\":\"blessing\",\r\n    \"userRole\":\"service_manager\",\r\n    \"hostDomain\": \"https://fsb.tokenization.com\",\r\n    \"apiPath\": \"/debit-card-tokenization/api/v1\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "https://interswitch-tokenization-gateway.k9.isw.la/itg/config/api/v1/issuers/update/4"
+          },
+          "response": []
+        },
+        {
+          "name": "find-issuer-by-id",
+          "_postman_id": "46b1ea87-4902-4beb-938d-62f6139da6a0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:9090/itg/config/api/v1/issuers/3"
+          },
+          "response": []
+        },
+        {
+          "name": "add-issuer-bin",
+          "_postman_id": "f66bbe66-f323-4d75-b747-43805fc8f329",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJSUzI1NiJ9.eyJsYXN0TmFtZSI6Imluc3RpdHV0aW9uIiwiZmlyc3RMb2dpbiI6ZmFsc2UsInVzZXJfbmFtZSI6ImFnYmluc3RAc2hhcmtsYXNlcnMuY29tIiwibW9iaWxlTm8iOm51bGwsImNsaWVudF9kZXNjcmlwdGlvbiI6bnVsbCwiY2xpZW50X2lkIjoiSUtJQTA0MDI0MDY4NzY0OEYxRjhDRTNGQjAzMzlBMjhFQTVBN0VCQzM3MkUiLCJmaXJzdE5hbWUiOiJhZ2VuY3lfYmFua2luZyIsImVtYWlsVmVyaWZpZWQiOnRydWUsImF1ZCI6WyJhcmJpdGVyIiwiY2Flc2FyIiwiaXN3LWNvcmUiLCJwYXNzcG9ydCIsInJqLXNlcnZpY2UiXSwiY2xpZW50X2F1dGhvcml6YXRpb25fZG9tYWluIjoiSVNXIiwic2NvcGUiOlsicHJvZmlsZSJdLCJleHAiOjE2MDI4Mzk4MjIsIm1vYmlsZU5vVmVyaWZpZWQiOmZhbHNlLCJjbGllbnRfbmFtZSI6InJqLXNlcnZpY2UiLCJjbGllbnRfbG9nbyI6bnVsbCwianRpIjoiNGNkNTliNmUtOGFhMi00ZTIzLWJhNjQtZWQ1MzI2MjAxMWEyIiwiZW1haWwiOiJhZ2JpbnN0QHNoYXJrbGFzZXJzLmNvbSIsInBhc3Nwb3J0SWQiOiIzQzMxOTIzQi0zODdGLTQ1NjMtOTQ2RS0wOTZBODk3NjdCOUYifQ.HHdtTuplQxk4vTX9MARmdAD6Z8dopK0u4k2JKgTOQhxnahCLAQO_ECSJ9GF09LAlBK4hEpHf4XUQOASRlwG9eLilk0vu7X1oGQw7ivXIonmLfnTlgCg8ssY1xr0ESSsg6xS4lUvXekr2g0jj4nVRG7Bc8mV7IhafFdN1oKGFyENXLI7G_Y_2TCDvV3hxEELsZJ_csa3aoRaRutEq-Jpy-_T3ojStRvpU5kwYtP_tzia07OZKzeb8Fs68rqvFkYlskBg_sy6WgjUXFHA3fWWFVhX5M2ln_egAzVJKUX93YP8c4d0IjS5wbjFoZNY8XMOoCRzkjVu2akpMZP9Gia2F0Q",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"issuerId\": \"ISI4C9F7F0\",\r\n    \"bin\":\"700014\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://localhost:9090/itg/config/api/v1/issuers/bin/add"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "57bccd3d-1107-4032-95a3-9c68f9540e78"
+    },
+    {
+      "name": "card-enrollment",
+      "item": [
+        {
+          "name": "CardEligibilityEndpoint",
+          "_postman_id": "173a44c9-2a76-4cb4-bc25-ab1ef57b6f4c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"cipheredCardInfo\":\"Encrypted Data: 76cU+hPwkEBARGRKHZOwz4Gw8hVjxlsXs1+AFpgb6sI=, Encrypted Key: iFhiAKep/iEIcjYb6hs8/ojRdToAy8Pp9jSx4X/NStribr6JvwvSCfcLlWAbeG7XJv/nY0avIJmI0ux8JyFn1XhG+l8vjeZlzEEnZjM4a/VWlMiPC32jR8n+QzqBOb444yiVPEPRKE9Ma93e2AZLwzPmLBJhErMurkT3HsTMGtA5EprW2vx6ACjx/mQvDc/qzbgxRr3Nmzz4SJiTlSkl5wDNClWkG6H9s9NxBYn//zOoxPqnPM1UJpft3hN+Xyj0YHtfk2AbwQ3k3xUiw7hQcwXIhvA6ubRwMCcgu3cxqDXFfKWq0GwQPInq6XCDNFZBDMbsznKza5Yo7nBZ1ijPxg==\",\r\n    \"issuerCardRefId\":\"\",\r\n    \"walletProviderId\":\"APPLE_PAY\",\r\n    \"tokenRequestor\":{\r\n        \"id\":\"ABN001\",\r\n        \"walletId\":\"0000001\",\r\n        \"merchantId\":\"MRCH001\",\r\n        \"name\":\"TEST_MERCH\"\r\n    },\r\n    \"captureMethod\":\"MANUAL\"\r\n\r\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": "http://localhost:9090/itg/issuer/igwapi/v2.0/checkCardEligibility"
+          },
+          "response": []
+        },
+        {
+          "name": "RequestCardDigitizationEndpoint",
+          "_postman_id": "9f986e77-57da-43c5-9223-fa7343d8a329",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"cipheredCardInfo\":\"MIAGCSqGSIb3DQEHA6CAMIACAQAxggF3MIIBcwIBADBbMFExCzAJBgNVBAYTAk5HMRYwFAYDVQQKEw1JbnRlcnN3aXRjaE5HMSowKAYDVQQDEyFJVEcgU3RhZ2luZyBDZXJ0aWZpY2F0ZSBBdXRob3JpdHkCBgF0CzQRbTANBgkqhkiG9w0BAQEFAASCAQAFuLTNdw8R1Y9SHYrMWkSnN8yLxc+eJRVo3AdD9r4YnVxWFjV2Gri7qwzO4CDp6h9o9Kt2kTc5KoqFQ3edHz07sMeD7ERcf8Ih2f67UGZRuIa/COsgMMS+r9Ft1qQrcN6OIhcuEd5XmCr7G6F8xH22kUZWkA/nwNEnXqjzzOPrYZuadz1TDS3PBIivi2JgtS1OWxZyhRvkDAYp1cI5weZKqJrCKbblONUrus0vRwz73PUV0ddwLpOFcaJ0dWzWly9iVtz5p+3YcGbStnRGI9ROmAZyLt8ywZ62JkvoiQBudIcEpQgftxshYoV1EbYKrhG1pmIEnYB9tjAdNcbuG9S2MIAGCSqGSIb3DQEHATAdBglghkgBZQMEASoEEF08lpoYZjS2Bv5ZJZoYgxmggAQw73YfUu8vz01Pf72UxhFQadj2WX6s59RICSXhlKv3qLkQJtGceD/LRPcfpr4XMcWEAAAAAAAAAAAAAA==\",\r\n  \"issuerCardRefId\": \"string\",\r\n  \"walletProviderId\": \"string\",\r\n  \"tokenRequestor\": {\r\n    \"id\": \"string\",\r\n    \"walletId\": \"string\",\r\n    \"merchantId\": \"string\",\r\n    \"name\": \"string\"\r\n  },\r\n  \"walletCardRefId\": \"string\",\r\n  \"authenticationValue\": \"string\",\r\n  \"publicKeyIdentifier\": \"string\",\r\n  \"walletUserInformation\": {\r\n    \"walletUserId\": \"string\",\r\n    \"emailHash\": \"string\",\r\n    \"maskedEmail\": \"string\",\r\n    \"isAccountUsernamMatchCardName\": true,\r\n    \"provisioningAttemptsOnDeviceIn24Hours\": \"string\",\r\n    \"walletDistinctCardholderNames\": \"string\",\r\n    \"walletAccountCountry\": \"string\",\r\n    \"suspendedCardsInAccount\": \"string\",\r\n    \"daysSinceLastAccountActivity\": \"string\",\r\n    \"numberOfActiveTokens\": \"string\",\r\n    \"deviceWithActiveTokens\": \"string\",\r\n    \"activeTokensOnAllDeviceForAccount\": \"string\",\r\n    \"daysSinceConsumerDataLastAccountChange\": \"string\",\r\n    \"numberOfTransactionsInLast12Months\": \"string\",\r\n    \"accountEmailLife\": \"string\"\r\n  },\r\n  \"cardCaptureInformation\": {\r\n    \"cardHolderName\": \"string\",\r\n    \"captureMethod\": \"CAMERA\",\r\n    \"deviceLocation\": \"string\",\r\n    \"sourceIp\": \"string\",\r\n    \"address\": {\r\n      \"addressStreetOne\": \"string\",\r\n      \"addressStreetTwo\": \"string\",\r\n      \"addressCity\": \"string\",\r\n      \"addressState\": \"string\",\r\n      \"addressZip\": \"string\",\r\n      \"addressCountry\": \"string\"\r\n    },\r\n    \"cardHolderIdType\": \"string\",\r\n    \"cardHolderIdNo\": \"string\"\r\n  },\r\n  \"scoringInformation\": {\r\n    \"levelOfTrust\": \"green\",\r\n    \"tspScore\": \"string\",\r\n    \"reasonCodes\": [\r\n      \"string\"\r\n    ],\r\n    \"deviceScore\": \"string\",\r\n    \"deviceTenure\": \"string\",\r\n    \"deviceTokens\": \"string\",\r\n    \"deviceCountry\": \"string\",\r\n    \"devicePayJoinDate\": \"string\",\r\n    \"accountScore\": \"string\",\r\n    \"accountCreationDate\": \"string\",\r\n    \"accountLastUpdateDate\": \"string\",\r\n    \"userTenure\": \"string\",\r\n    \"userTokens\": \"string\",\r\n    \"userWallets\": \"string\",\r\n    \"userCountry\": \"string\",\r\n    \"userPayJoinDate\": \"string\",\r\n    \"phoneNumberScore\": \"string\",\r\n    \"walletScore\": \"string\",\r\n    \"walletTenure\": \"string\",\r\n    \"walletTransactions\": \"string\",\r\n    \"cardScore\": \"string\",\r\n    \"cardTenure\": \"string\",\r\n    \"cardNewlyAdded\": true,\r\n    \"levelOfTrustStandardVersion\": \"string\"\r\n  },\r\n  \"deviceInformation\": {\r\n    \"tokenStorageId\": \"string\",\r\n    \"tokenStorageType\": \"string\",\r\n    \"manufacturer\": \"string\",\r\n    \"brand\": \"string\",\r\n    \"model\": \"string\",\r\n    \"tac\": \"string\",\r\n    \"osVersion\": \"string\",\r\n    \"firmwareVersion\": \"string\",\r\n    \"phoneNumber\": \"string\",\r\n    \"fourLastDigitPhoneNumber\": \"string\",\r\n    \"deviceName\": \"string\",\r\n    \"deviceId\": \"string\",\r\n    \"androidIdLastTwo\": \"string\",\r\n    \"deviceParentId\": \"string\",\r\n    \"language\": \"string\",\r\n    \"deviceStateFlags\": \"string\",\r\n    \"serialNumber\": \"string\",\r\n    \"timeZone\": \"string\",\r\n    \"timeZoneSetting\": \"NETWORK_SET\",\r\n    \"simSerialNumber\": \"string\",\r\n    \"IMEI\": \"string\",\r\n    \"phoneLostTime\": \"string\",\r\n    \"networkOperator\": \"string\",\r\n    \"networkType\": \"CELLULAR\"\r\n  },\r\n  \"tncStatus\": true,\r\n  \"tncAcceptedDate\": \"string\",\r\n  \"cvvValidated\": true\r\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": "http://localhost:9090/itg/issuer/igwapi/v2.0/requestCardDigitization"
+          },
+          "response": []
+        },
+        {
+          "name": "NotifyStandInProcessEndpoint",
+          "_postman_id": "53825052-a5e1-4dea-9f89-56b097f3471f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"cipheredCardInfo\":\"MIAGCSqGSIb3DQEHA6CAMIACAQAxggF3MIIBcwIBADBbMFExCzAJBgNVBAYTAk5HMRYwFAYDVQQKEw1JbnRlcnN3aXRjaE5HMSowKAYDVQQDEyFJVEcgU3RhZ2luZyBDZXJ0aWZpY2F0ZSBBdXRob3JpdHkCBgF0CzQRbTANBgkqhkiG9w0BAQEFAASCAQAFuLTNdw8R1Y9SHYrMWkSnN8yLxc+eJRVo3AdD9r4YnVxWFjV2Gri7qwzO4CDp6h9o9Kt2kTc5KoqFQ3edHz07sMeD7ERcf8Ih2f67UGZRuIa/COsgMMS+r9Ft1qQrcN6OIhcuEd5XmCr7G6F8xH22kUZWkA/nwNEnXqjzzOPrYZuadz1TDS3PBIivi2JgtS1OWxZyhRvkDAYp1cI5weZKqJrCKbblONUrus0vRwz73PUV0ddwLpOFcaJ0dWzWly9iVtz5p+3YcGbStnRGI9ROmAZyLt8ywZ62JkvoiQBudIcEpQgftxshYoV1EbYKrhG1pmIEnYB9tjAdNcbuG9S2MIAGCSqGSIb3DQEHATAdBglghkgBZQMEASoEEF08lpoYZjS2Bv5ZJZoYgxmggAQw73YfUu8vz01Pf72UxhFQadj2WX6s59RICSXhlKv3qLkQJtGceD/LRPcfpr4XMcWEAAAAAAAAAAAAAA==\",\r\n  \"virtualCardId\": \"string\",\r\n  \"tokenStorageId\": \"string\",\r\n  \"deviceInformation\": {\r\n    \"tokenStorageId\": \"string\",\r\n    \"tokenStorageType\": \"string\",\r\n    \"manufacturer\": \"string\",\r\n    \"brand\": \"string\",\r\n    \"model\": \"string\",\r\n    \"tac\": \"string\",\r\n    \"osVersion\": \"string\",\r\n    \"firmwareVersion\": \"string\",\r\n    \"phoneNumber\": \"string\",\r\n    \"fourLastDigitPhoneNumber\": \"string\",\r\n    \"deviceName\": \"string\",\r\n    \"deviceId\": \"string\",\r\n    \"androidIdLastTwo\": \"string\",\r\n    \"deviceParentId\": \"string\",\r\n    \"language\": \"string\",\r\n    \"deviceStateFlags\": \"string\",\r\n    \"serialNumber\": \"string\",\r\n    \"timeZone\": \"string\",\r\n    \"timeZoneSetting\": \"NETWORK_SET\",\r\n    \"simSerialNumber\": \"string\",\r\n    \"IMEI\": \"string\",\r\n    \"phoneLostTime\": \"string\",\r\n    \"networkOperator\": \"string\",\r\n    \"networkType\": \"CELLULAR\"\r\n  },\r\n  \"isPrimary\": true,\r\n  \"enrollmentStep\": \"NEW_SESSION\",\r\n  \"status\": \"SUSPENDED\",\r\n  \"tokenInfo\": \"string (base64)\",\r\n  \"publicKeyIdentifier\": \"string\",\r\n  \"walletProviderId\": \"string\",\r\n  \"tokenRequestor\": {\r\n    \"id\": \"string\",\r\n    \"walletId\": \"string\",\r\n    \"merchantId\": \"string\",\r\n    \"name\": \"string\"\r\n  },\r\n  \"walletCardRefId\": \"string\",\r\n  \"source\": \"WALLET\",\r\n  \"cvvValidated\": true\r\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": "http://localhost:9090/itg/issuer/igwapi/v2.0/notifyStandInProcess"
+          },
+          "response": []
+        },
+        {
+          "name": "RequestDeviceBindingEndpoint",
+          "_postman_id": "37127449-2af3-474d-94e4-0063071c4f39",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"deviceBindingReference\": \"string\",\r\n  \"virtualCardId\": \"string\",\r\n  \"walletProviderId\": \"string\",\r\n  \"tokenRequestor\": {\r\n    \"id\": \"string\",\r\n    \"walletId\": \"string\",\r\n    \"merchantId\": \"string\",\r\n    \"name\": \"string\"\r\n  },\r\n  \"issuerCardRefId\": \"ISI4C9F7F0111111\",\r\n  \"walletUserInformation\": {\r\n    \"walletUserId\": \"string\",\r\n    \"emailHash\": \"string\",\r\n    \"maskedEmail\": \"string\",\r\n    \"isAccountUsernamMatchCardName\": true,\r\n    \"provisioningAttemptsOnDeviceIn24Hours\": \"string\",\r\n    \"walletDistinctCardholderNames\": \"string\",\r\n    \"walletAccountCountry\": \"string\",\r\n    \"suspendedCardsInAccount\": \"string\",\r\n    \"daysSinceLastAccountActivity\": \"string\",\r\n    \"numberOfActiveTokens\": \"string\",\r\n    \"deviceWithActiveTokens\": \"string\",\r\n    \"activeTokensOnAllDeviceForAccount\": \"string\",\r\n    \"daysSinceConsumerDataLastAccountChange\": \"string\",\r\n    \"numberOfTransactionsInLast12Months\": \"string\",\r\n    \"accountEmailLife\": \"string\"\r\n  },\r\n  \"deviceInformation\": {\r\n    \"tokenStorageId\": \"string\",\r\n    \"tokenStorageType\": \"string\",\r\n    \"manufacturer\": \"string\",\r\n    \"brand\": \"string\",\r\n    \"model\": \"string\",\r\n    \"tac\": \"string\",\r\n    \"osVersion\": \"string\",\r\n    \"firmwareVersion\": \"string\",\r\n    \"phoneNumber\": \"string\",\r\n    \"fourLastDigitPhoneNumber\": \"string\",\r\n    \"deviceName\": \"string\",\r\n    \"deviceId\": \"string\",\r\n    \"androidIdLastTwo\": \"string\",\r\n    \"deviceParentId\": \"string\",\r\n    \"language\": \"string\",\r\n    \"deviceStateFlags\": \"string\",\r\n    \"serialNumber\": \"string\",\r\n    \"timeZone\": \"string\",\r\n    \"timeZoneSetting\": \"NETWORK_SET\",\r\n    \"simSerialNumber\": \"string\",\r\n    \"IMEI\": \"string\",\r\n    \"phoneLostTime\": \"string\",\r\n    \"networkOperator\": \"string\",\r\n    \"networkType\": \"CELLULAR\"\r\n  }\r\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": "http://localhost:9090/itg/issuer/igwapi/v2.0/requestDeviceBinding"
+          },
+          "response": []
+        },
+        {
+          "name": "NotifyVirtualCardChange",
+          "_postman_id": "2fe812c3-fc6d-4bc7-a21c-7b249e9a0e19",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-correlation-id",
+                "value": "1234567890",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"issuerCardRefId\": \"ISI4C9F7F062963938\",\r\n  \"virtualCardId\": \"string\",\r\n  \"walletCardRefId\": \"string\",\r\n  \"walletVirtualCardId\": \"string\",\r\n  \"walletProviderId\": \"string\",\r\n  \"tokenRequestor\": {\r\n    \"id\": \"string\",\r\n    \"walletId\": \"string\",\r\n    \"merchantId\": \"string\",\r\n    \"name\": \"string\"\r\n  },\r\n  \"tokenStorageId\": \"string\",\r\n  \"isPrimary\": true,\r\n  \"action\": \"ACTIVATE\",\r\n  \"deviceBindingReference\": \"string\",\r\n  \"tokenInfo\": \"string (base64)\",\r\n  \"publicKeyIdentifier\": \"string\",\r\n  \"errorCode\": 123,\r\n  \"source\": \"WALLET\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "https://interswitch-tokenization-gateway.k9.isw.la/itg/issuer/igwapi/v2.0/notifyVirtualCardChange"
+          },
+          "response": []
+        },
+        {
+          "name": "sendOTP",
+          "_postman_id": "8cd213fd-c869-4d7d-b3fb-27c6abc550c3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-correlation-id",
+                "value": "12233657",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"walletProviderId\": \"string\",\r\n  \"tokenRequestor\": {\r\n    \"id\": \"string\",\r\n    \"walletId\": \"string\",\r\n    \"merchantId\": \"string\",\r\n    \"name\": \"string\"\r\n  },\r\n  \"issuerCardRefId\": \"ISI4C9F7F076558984\",\r\n  \"deviceBindingReference\": \"string\",\r\n  \"otpValue\": \"string\",\r\n  \"expirationDate\": \"string\",\r\n  \"otpMethodId\": \"string\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "https://interswitch-tokenization-gateway.k9.isw.la/itg/issuer/igwapi/v2.0/sendOTP"
+          },
+          "response": []
+        },
+        {
+          "name": "getIDnVMethodList",
+          "_postman_id": "ffc78121-c815-4971-94aa-fff3d6eca57f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-correlation-id",
+                "value": "12233657",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n \"walletProviderId\": \"string\",\r\n  \"tokenRequestor\": {\r\n    \"id\": \"string\",\r\n    \"walletId\": \"string\",\r\n    \"merchantId\": \"string\",\r\n    \"name\": \"string\"\r\n  },\r\n  \"issuerCardRefId\": \"ISI4C9F7F076558984\",\r\n  \"virtualCardId\": \"string\",\r\n  \"deviceBindingReference\": \"string\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "https://interswitch-tokenization-gateway.k9.isw.la/itg/issuer/igwapi/v2.0/getIDnVMethodList"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "9916734a-6265-4375-803c-a374a9bd11aa"
+    },
+    {
+      "name": "card-lifecycle-mgt",
+      "item": [
+        {
+          "name": "getCardInfo",
+          "_postman_id": "9d8b4456-414f-429b-b785-2b1efe721d9b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-correlation-id",
+                "value": "1602125647422",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"issuerCardRefId\": \"ISI4C9F7F009224849\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "https://interswitch-tokenization-gateway.k9.isw.la/itg/issuer/api/v1/getCardInfo"
+          },
+          "response": []
+        },
+        {
+          "name": "updateCardState",
+          "_postman_id": "437d13a4-84a1-463c-8289-0fe55b4c9f33",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-correlation-id",
+                "value": "1601111111111111",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"issuerCardRefId\": \"ISI4C9F7F095046304\",\r\n  \"virtualCardId\": \"d5bf3bbbd811414086bec1e0e0539c7f\",\r\n  \"deviceBindingReference\": \"string\",\r\n  \"action\": \"SUSPEND\",\r\n  \"reason\": 11\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "https://interswitch-tokenization-gateway.k9.isw.la/itg/issuer/api/v1/updateCardState"
+          },
+          "response": []
+        },
+        {
+          "name": "updateCard",
+          "_postman_id": "0e5e8fae-6a12-4ef9-873f-304fceace314",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-correlation-id",
+                "value": "1601111111111111",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"issuerCardRefId\": \"ISI4C9F7F092077591\",\r\n  \"newIssuerCardRefId\": \"string\",\r\n  \"fpanDetails\": \"i7airffTQl2sIiM+AaJ9zIizZCfz+e8u1jgTVkU5sW8Y2vrWzd+s+KQ93y+0akoB4gYd43UIdvupT/7iS80ytc/Cy2B2vbhOHAt3Ppx96UD00DWv4kuhnGpepcy71zrqYFvsE3UpFCxrw5vx0hNi3A==\",\r\n  \"publicKeyIdentifier\": \"string\",\r\n  \"newProductId\": \"string\",\r\n  \"metadata\": {\r\n    \"cardIssuer\": \"string\",\r\n    \"foregroundColor\": \"string\",\r\n    \"backgroundColor\": \"string\",\r\n    \"labelColor\": \"string\",\r\n    \"shortDescription\": \"string\",\r\n    \"longDescription\": \"string\",\r\n    \"contactWebsite\": \"string\",\r\n    \"contactName\": \"string\",\r\n    \"contactEmail\": \"string\",\r\n    \"contactNumber\": \"string\",\r\n    \"privacyPolicyURL\": \"string\",\r\n    \"termsAndConditionsURL\": \"string\",\r\n    \"supportsTokenNotifications\": \"string\",\r\n    \"supportsFPANNotifications\": \"string\",\r\n    \"appLaunchURL\": \"string\",\r\n    \"appLaunchURLScheme\": \"string\",\r\n    \"transactionServiceURL\": \"string\",\r\n    \"transactionPushTopic\": \"string\",\r\n    \"messageServiceURL\": \"string\",\r\n    \"messagePushTopic\": \"string\"\r\n  },\r\n  \"newCardMetadata\": {\r\n    \"cardholderName\": \"string\",\r\n    \"fpanLastDigits\": \"string\",\r\n    \"fpanBin\": \"string\",\r\n    \"fpanExpiryDate\": \"string\"\r\n  }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "https://interswitch-tokenization-gateway.k9.isw.la/itg/issuer/api/v1/updateCard"
+          },
+          "response": []
+        },
+        {
+          "name": "sendMessage",
+          "_postman_id": "1a6669b3-a967-4f4e-a39f-729a0413b81d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-correlation-id",
+                "value": "1601111111111111",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"virtualCardId\": \"be356b648652443992335f1d4e16c070\",\r\n    \"issuerCardRefId\": \"ISI4C9F7F095046304\",\r\n    \"language\": \"EN-US\",\r\n    \"message\": \"Hello test message\",\r\n    \"messageToken\": \"string\",\r\n    \"expirationDate\": \"string\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "https://interswitch-tokenization-gateway.k9.isw.la/itg/issuer/api/v1/sendMessage"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "4bd275e9-da69-43d3-938b-97a12d852f07"
+    },
+    {
+      "name": "TSHHealthCheck",
+      "_postman_id": "4e7da937-ec97-4286-ab86-525517c3b57d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://interswitch-tokenization-gateway.k8.isw.la/itg/issuer/api/v1/tshHealthCheck"
+      },
+      "response": []
+    },
+    {
+      "name": "actuator/health",
+      "_postman_id": "49711c91-c081-4631-af2c-f444b4d9c0fe",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://interswitch-tokenization-gateway.k8.isw.la/itg/actuator/health"
+      },
+      "response": []
+    },
+    {
+      "name": "ITGHealthCheck",
+      "_postman_id": "042a106f-8bae-4b8c-9aa2-8fbaca2d3bc9",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "https://interswitch-tokenization-gateway.k9.isw.la/itg/issuer/igwapi/v2.0/healthCheck"
+      },
+      "response": []
+    }
+  ]
+}
